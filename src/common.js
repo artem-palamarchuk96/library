@@ -15,7 +15,9 @@ library.controller("libraryCtrl", function($scope) {
 	$scope.addBook = function() {
 		$scope.data.books.push({name: "", genre: "", pages: ""});
 	}
-	
+	$scope.addDataLS = function() {
+		localStorage.setItem('data', JSON.stringify($scope.data));
+	}
 
 
 })
