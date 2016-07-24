@@ -1,0 +1,32 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artem-palamarchuk96/library.git"
+  },
+  "author": "Artem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artem-palamarchuk96/library/issues"
+  },
+  "homepage": "https://github.com/artem-palamarchuk96/library#readme",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-less": "^3.1.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sequence": "^0.4.5",
+    "gulp-uglify": "^1.5.4",
+    "rimraf": "^2.5.4"
+  }
+}
