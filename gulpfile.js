@@ -20,7 +20,6 @@ gulp.task('html', function() {
 
 gulp.task('css', function() {
 	return gulp.src('src/main.less')
-			.pipe(cleancss())
 			.pipe(less())
 			.pipe(autoprefixer())
 			.pipe(gulp.dest('dist'))
@@ -30,7 +29,6 @@ gulp.task('css', function() {
 gulp.task('js', function() {
 	return gulp.src('src/common.js')
 			.pipe(rigger())
-			.pipe(uglify())
 			.pipe(gulp.dest('dist'))
 			.pipe(browsersync.reload({stream: true}))
 })
