@@ -1,8 +1,13 @@
 @import (less) url(../bower_components/bootstrap/dist/css/bootstrap.css);
 
+
 body {
-	outline: none;
 	padding: 20px;
+}
+
+
+p {
+	margin: 0;
 }
 
 .container {
@@ -12,17 +17,19 @@ body {
 table {
 	width: 100%;
 	border: 1px solid #666;
-}
 
-table tr td {
-	padding: 10px;
-	border: 1px solid #333;
-}
+	tr {
 
-table tr th {
-	padding: 10px;
-}
+		th {
+			padding: 10px;
+		}
 
+		td {
+			padding: 10px;
+			border: 1px solid #333;
+		}
+	}
+}
 
 .add-book-btn {
 	float: right;

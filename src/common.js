@@ -1,23 +1,23 @@
 //= ../bower_components/angular/angular.js
-var model = {
-	name: "",
-	surname: "",
-	patronymic: "",
-	books: [
-		{name: "", genre: "", pages: ""}
-	]
-}
+var model = [
+	
+	// books: [
+	// 	{name: "", genre: "", pages: ""}
+	// ]
+]
 
 var library = angular.module("libraryApp", []);
-
 library.controller("libraryCtrl", function($scope) {
-	$scope.data = model;
-	$scope.addBook = function() {
-		$scope.data.books.push({name: "", genre: "", pages: ""});
+
+	if (localStorage.length == 0) {
+		$scope.data = model;
+	} else {
+		$scope.data = JSON.parse(localStorage.getItem('data'));
 	}
-	$scope.addDataLS = function() {
+
+	$scope.addBook = function(name, surname, patronymic, bookName, bookGenre, bookPages) {
+		$scope.data.push({name: name, surname: surname, patronymic: patronymic, books: {name: bookName, genre: bookGenre, pages: bookPages}});
 		localStorage.setItem('data', JSON.stringify($scope.data));
 	}
-
 
 })

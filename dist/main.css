@@ -6771,8 +6771,10 @@ button.close {
   }
 }
 body {
-  outline: none;
   padding: 20px;
+}
+p {
+  margin: 0;
 }
 .container {
   min-width: 960px;
@@ -6781,12 +6783,12 @@ table {
   width: 100%;
   border: 1px solid #666;
 }
+table tr th {
+  padding: 10px;
+}
 table tr td {
   padding: 10px;
   border: 1px solid #333;
-}
-table tr th {
-  padding: 10px;
 }
 .add-book-btn {
   float: right;

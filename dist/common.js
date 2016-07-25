@@ -31766,25 +31766,25 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-var model = {
-	name: "",
-	surname: "",
-	patronymic: "",
-	books: [
-		{name: "", genre: "", pages: ""}
-	]
-}
+var model = [
+	
+	// books: [
+	// 	{name: "", genre: "", pages: ""}
+	// ]
+]
 
 var library = angular.module("libraryApp", []);
-
 library.controller("libraryCtrl", function($scope) {
-	$scope.data = model;
-	$scope.addBook = function() {
-		$scope.data.books.push({name: "", genre: "", pages: ""});
+
+	if (localStorage.length == 0) {
+		$scope.data = model;
+	} else {
+		$scope.data = JSON.parse(localStorage.getItem('data'));
 	}
-	$scope.addDataLS = function() {
+
+	$scope.addBook = function(name, surname, patronymic, bookName, bookGenre, bookPages) {
+		$scope.data.push({name: name, surname: surname, patronymic: patronymic, books: {name: bookName, genre: bookGenre, pages: bookPages}});
 		localStorage.setItem('data', JSON.stringify($scope.data));
 	}
-
 
 })
