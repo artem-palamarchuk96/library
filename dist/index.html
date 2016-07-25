@@ -7,67 +7,72 @@
 	<script type="text/javascript" src="common.js"></script>
 </head>
 <body ng-controller="libraryCtrl">
-	
+	<!-- MAIN WRAP -->
 	<div class="fluid-container">
 		<div class="container">
 			<div class="row">
+				<!-- LEFT SIDE WRAP -->
 				<div class="col-xs-6">
-					<form action="#" method="post">
-						<fieldset class="fieldset-person">
+					<form action="#" name="library-form" method="post">
+						<!-- ADD NEW AUTHOR -->
+						<fieldset>
 							<legend>Добавить автора</legend>
-							<table class="table-person">
+							<table>
 								<tr>
 									<th>Фамилия *</th>
-									<td><input ng-model="data.name" class="text-input" type="text" id="name" placeholder="Введите фамилию"></td>
+									<td><input ng-model="data.name" class="text-field form-control" type="text" id="name" placeholder="Введите фамилию"></td>
 								</tr>
 								<tr>
 									<th>Имя *</th>
-									<td><input ng-model="data.surname" class="text-input" type="text" id="surname" placeholder="Введите имя"></td>
+									<td><input ng-model="data.surname" class="text-field form-control" type="text" id="surname" placeholder="Введите имя"></td>
 								</tr>
 								<tr>
 									<th>Отчество *</th>
-									<td><input ng-model="data.patronymic" class="text-input" type="text" id="patronymic" placeholder="Введите отчество"></td>
+									<td><input ng-model="data.patronymic" class="text-field form-control" type="text" id="patronymic" placeholder="Введите отчество"></td>
 								</tr>
 							</table>
 						</fieldset>
-
-
+						<!-- ADD NEW BOOK -->
 						<fieldset class="fieldset-books">
-							<legend>Книги <button class="btn btn-info add-book-btn">Добавить книгу</button></legend>
-							<table id="table" class="tables">
+							<legend>Книги
+								<button class="btn btn-info custom-btn add-book-btn">Добавить книгу</button>
+							</legend>
+							<table>
 								<tr>
 									<th>Название *</th>
 									<td>
-										<input ng-model="data.books.name" id="bookTitleId" class="books-text" type="text" placeholder="Введите название книги" required="required">
+										<input ng-model="data.books.name" id="bookTitleId" class="form-control" type="text" placeholder="Введите название книги" required="required">
 									</td>
 								</tr>
 								<tr>
 									<th>Жанр *</th>
 									<td>
-										<input ng-model="data.books.genre" id="bookGenreId" class="books-text" type="text" placeholder="Введите жанр книги" required="required">
+										<input ng-model="data.books.genre" id="bookGenreId" class="form-control" type="text" placeholder="Введите жанр книги" required="required">
 									</td>
 								</tr>
 								<tr>
 									<th>Кол-во страниц *</th>
 									<td>
-										<input ng-model="data.books.pages" id="bookPagesId" class="books-text" type="text" placeholder="Введите кол-во страниц" required="required">
+										<input ng-model="data.books.pages" id="bookPagesId" class="form-control" type="text" placeholder="Введите кол-во страниц" required="required">
 									</td>
 								</tr>
 							</table>
 						</fieldset>
-
+						<!-- ADD/RESET BUTTONS -->
 						<fieldset>
-							<input ng-click="addBook(data.name, data.surname, data.patronymic, data.books.name, data.books.genre, data.books.pages)" type="button" class="btn btn-success submit-btn" value="Сохранить">
-							<input type="reset" name="">
+							<input ng-click="addBook(data.name, data.surname, data.patronymic, data.books.name, data.books.genre, data.books.pages)" type="button" class="btn btn-success custom-btn submit-btn" value="Сохранить">
+							<input class="btn btn-danger custom-btn reset-btn" type="reset" name="">
 						</fieldset>
 					</form>
 				</div>
 
-
+				<!-- RIGHT SIDE WRAP -->
 				<div class="col-xs-6">
 					<fieldset>
-						<legend>Таблица</legend>
-						<table id="table-outer">
+						<legend>Данные из local storage
+							<input type="button" class="btn btn-danger custom-btn clear-ls" value="Очистить LS">
+						</legend>
+						<table>
 							<thead>
 								<tr>
 									<th>Edit</th>
@@ -77,7 +82,7 @@
 									<th>Книга</th>
 								</tr>
 							</thead>
-							<tbody ng-repeat="person in data track by $index" id="table-body">
+							<tbody ng-repeat="person in data track by $index">
 								<tr>
 									<td></td>
 									<td>{{person.name}}</td>
@@ -92,9 +97,7 @@
 							</tbody>
 						</table>
 					</fieldset>
-
 				</div>
-
 
 			</div>
 		</div>
